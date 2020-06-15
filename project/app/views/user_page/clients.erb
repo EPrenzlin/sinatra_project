@@ -1,0 +1,17 @@
+This is where all the users clients will be displayed!<br>
+
+
+<% if @user.admin != true %>
+<%@user.clients.all.each do |c|%>
+<a href="client/<%=c.id%>"><%=c.name%></a><br>
+<%end%>
+
+<%else @user.admin == true %>
+ <% Client.all.each do |c| %>
+<a href="client/<%=c.id%>"><%=c.name%></a><br>
+<%end%>
+<%end%>
+
+
+
+

@@ -1,0 +1,34 @@
+<style>
+h1{text-align: center;}
+div{align:center} 
+</style>
+
+<h1> Create log-in deatails </h1> 
+<div>
+<form action="/signup" method="post"> 
+<input type="text" name="name" placeholder="username"><br>
+<p> </p>
+<input type="password" name="password" placeholder="Password"> <br>
+<p> </p>
+<select name="title" value="title">
+<option value=""disabled selected>Title</option>
+<option value="Managing Director"> Managing Director </option>
+<option value="Executive Director"> Executive Director </option>
+<option value="Vice-President"> Vice President </option> 
+<option value="Associate"> Associate </option>
+<option value=" Analyst"> Analyst </option>
+<option value="Intern"> Intern </option>
+</select> <br>
+<p> </p>
+
+<select name="division" value="division">
+<option value=""disabled selected>Division</option>
+<option value="sales">Sales </option>
+<option value="trading">Trading </option>
+<option value="m&a">M&A </option>
+<option value="developer">Developer </option>
+</select><br>
+<p> </p>
+<input type="submit" value="create employee login details">
+</form>
+<div>
