@@ -5,6 +5,7 @@ set :views, Proc.new { File.join(root, "../views") }
 configure do 
     enable :sessions
     set :session_secret, ENV["SESSION_SECRET"]
+    disable :show_exceptions  
 end
 
 
@@ -20,9 +21,9 @@ helpers do
     def authenticate
     if logged_in? == true
         true
-    elsif
-         is_admin?
-        true 
+    # elsif
+    #      is_admin?
+    #     true 
     else
         redirect '/logout'
     end
@@ -49,12 +50,16 @@ helpers do
     def is_admin? 
     if current_user.admin == true
         true 
-    else
+    else 
         redirect '/dashboard'
     end
     end
 
 end
 
+
+not_found do 
+erb :'error/error_page'
+end
 
 end

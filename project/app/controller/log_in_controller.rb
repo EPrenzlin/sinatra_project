@@ -5,6 +5,7 @@ class Log_in_controller < Application_Controller
         end
         
         get '/signup' do 
+        @user = 
         erb :"/homepage/signup"
         end
         
@@ -27,7 +28,7 @@ class Log_in_controller < Application_Controller
         if @user.save
             redirect "/login"
         else
-            redirect "/signup"
+            erb :"./homepage/signup"
         end
         end
         

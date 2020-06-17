@@ -29,7 +29,8 @@ class Dashboard_controller < Application_Controller
     authenticate
     authenticate_client
     @user = current_user
-    @client = @user.clients.find_by(id:params[:id])
+    @client = Client.find_by_id(params[:id])
+    # @user.clients.find_by(id:params[:id])
     erb :'/user_page/client' 
     end
 
@@ -38,21 +39,22 @@ class Dashboard_controller < Application_Controller
     authenticate_client
     authenticate_title
     @user = current_user
-    @client = @user.clients.find_by(id:params[:id])
+    @client = Client.find_by_id(params[:id])
     erb :"user_page/edit_client"
     end
 
-    patch '/client/edit' do 
+    patch '/client/edit/:id' do
     authenticate 
     authenticate_title
-    @client = Client.find_by(employee_id:current_user.id)
+    authenticate_client
+    @client = Client.find_by_id(params[:id])
     @client.priority = params[:priority]
     @client.industry = params[:industry]
     @client.save
     redirect '/clients'
     end
 
-    get '/client/:id/delete' do 
+    delete "/client/:id" do 
     authenticate 
     authenticate_client
     authenticate_title
